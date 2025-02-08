@@ -16,6 +16,8 @@ export default function App() {
   const [textToShow, setTextToShow] = useState('dati in caricamento...');
   const [cardPressed, setCardPressed] = useState();
 
+  
+
   useEffect(() => {
     setTextToShow('componente montato');
     CommunicationController.getMenus().then((menuList) => {
@@ -51,7 +53,7 @@ export default function App() {
     return (
       <View style={styles.container}>
 
-       <DetailMenuView data={cardPressed} onBuyPress={GestioneOrdini.effettuaOrdine} setScreen1 = {setScreen}/>
+       <DetailMenuView data={cardPressed}/>
         
         <StatusBar style="auto" />
       </View>

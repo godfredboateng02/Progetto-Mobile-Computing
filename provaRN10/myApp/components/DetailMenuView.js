@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet, Image, Button } from 'react-native'
 import CommunicationController from '../model/CommunicationController';
+import GestioneOrdini from '../viewmodel/GestioneOrdini';
  
 
-export default function ({data, onBuyPress, setScreen1}) {
+export default function ({data}) {
     
     const [details, setDetails] = useState()
     const [screen, setScreen] = useState(undefined)
@@ -29,7 +30,7 @@ export default function ({data, onBuyPress, setScreen1}) {
                 <Text>{details.longDescription}</Text>
                 <Text>{data.price}€</Text>
                 <Text>{data.deliveryTime}</Text>
-                {/*<Button style={styles.acquista} title="Acquista" onPress={()=>onBuyPress(data.mid,setScreen)}/>*/}
+                <Button style={styles.acquista} title="Acquista" onPress={()=>GestioneOrdini.effettuaOrdine(data.mid)}/>
             </View>
         )
     }
