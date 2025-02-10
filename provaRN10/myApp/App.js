@@ -4,11 +4,12 @@ import React, { useEffect, useState } from 'react';
 import MenuListView from './components/MenuListView';
 import CommunicationController from './model/CommunicationController';
 import DetailMenuView from './components/DetailMenuView';
-import osCall from './model/osCall';
-import GestioneOrdini from './viewmodel/GestioneOrdini';
+import location from './model/location';
 
 export default function App() {
-  console.log(osCall.posizione()); 
+
+  lat = location.getLat().then((lat) => {console.log("\n\n\nlatitudine: ",lat)});
+  lng = location.getLng().then((lng) => {console.log("\n\n\nlongitudine: ",lng)});
 
 
   const [screen, setScreen] = useState('Homepage');
@@ -70,4 +71,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
